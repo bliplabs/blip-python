@@ -52,8 +52,7 @@ from blip.model.biller_create import BillerCreate
 # in accordance with the API server security policy.
 configuration = blip.Configuration(
     host = 'http://localhost',
-    username = '',
-    password = 'YOUR_API_KEY'
+    username = 'YOUR_API_KEY',
 )
 
 
@@ -92,11 +91,11 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BillersApi* | [**add_billers**](docs/BillersApi.md#add_billers) | **POST** /v1/billers | Add Billers
-*BillersApi* | [**delete_biller**](docs/BillersApi.md#delete_biller) | **DELETE** /v1/billers/{id} | Remove Biller
 *BillersApi* | [**get_biller**](docs/BillersApi.md#get_biller) | **GET** /v1/billers/{id} | Get Biller
+*BillersApi* | [**get_billers_status**](docs/BillersApi.md#get_billers_status) | **GET** /v1/billers/status | Get Billers Status
 *BillersApi* | [**update_biller**](docs/BillersApi.md#update_biller) | **PUT** /v1/billers/{id} | Update Biller
 *TransactionsApi* | [**add_transactions**](docs/TransactionsApi.md#add_transactions) | **POST** /v1/transactions | Add Transactions
-*TransactionsApi* | [**delete_transaction**](docs/TransactionsApi.md#delete_transaction) | **DELETE** /v1/transactions/{id} | Remove Transaction
+*TransactionsApi* | [**get_transactions_status**](docs/TransactionsApi.md#get_transactions_status) | **GET** /v1/transactions/status | Get Transactions Status
 *TransactionsApi* | [**update_transaction**](docs/TransactionsApi.md#update_transaction) | **PUT** /v1/transactions/{id} | Update Transaction
 
 

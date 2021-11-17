@@ -1,6 +1,5 @@
 .gitignore
 .gitlab-ci.yml
-.openapi-generator-ignore
 .travis.yml
 README.md
 blip/__init__.py
@@ -43,16 +42,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_biller.py
-test/test_biller_create.py
-test/test_biller_create_multi_response.py
-test/test_biller_update.py
-test/test_billers_api.py
-test/test_http_validation_error.py
-test/test_transaction.py
-test/test_transaction_create.py
-test/test_transaction_create_multi_response.py
-test/test_transaction_update.py
-test/test_transactions_api.py
-test/test_validation_error.py
 tox.ini
