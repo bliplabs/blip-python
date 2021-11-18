@@ -95,6 +95,7 @@ Class | Method | HTTP request | Description
 *BillersApi* | [**get_billers_status**](docs/BillersApi.md#get_billers_status) | **GET** /v1/billers/status | Get Billers Status
 *BillersApi* | [**update_biller**](docs/BillersApi.md#update_biller) | **PUT** /v1/billers/{id} | Update Biller
 *TransactionsApi* | [**add_transactions**](docs/TransactionsApi.md#add_transactions) | **POST** /v1/transactions | Add Transactions
+*TransactionsApi* | [**get_transactions**](docs/TransactionsApi.md#get_transactions) | **GET** /v1/transactions | Get Transactions
 *TransactionsApi* | [**get_transactions_status**](docs/TransactionsApi.md#get_transactions_status) | **GET** /v1/transactions/status | Get Transactions Status
 *TransactionsApi* | [**update_transaction**](docs/TransactionsApi.md#update_transaction) | **PUT** /v1/transactions/{id} | Update Transaction
 

@@ -1,15 +1,7 @@
 import blip
-from blip.api import transactions_api
 from config import API_KEY
 
-# Add your API Key and configure the API Client
-configuration = blip.Configuration(
-    host="http://localhost", username=API_KEY, password=""
-)
-api_client = blip.ApiClient(configuration)
-
-# Configure an API instance for your desired endpoint
-api_instance = transactions_api.TransactionsApi(api_client)
+blip.configuration.username = API_KEY
 
 transactions_in = [
     {
@@ -22,9 +14,8 @@ transactions_in = [
     }
 ]
 
-
 try:
-    api_response = api_instance.add_transactions(transactions_in)
+    api_response = blip.transactions.add_transactions(transactions_in)
     print(api_response)
 except blip.ApiException as e:
-    print("Exception when calling TransactionsApi->add_transactions: %s\n" % e)
+    print("Exception when calling transactions->add_transactions: %s\n" % e)
