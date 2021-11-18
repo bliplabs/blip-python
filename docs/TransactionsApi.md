@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_transactions**
-> [Transaction] get_transactions()
+> [Transaction], none_type get_transactions()
 
 Get Transactions
 
@@ -125,7 +125,7 @@ configuration = blip.Configuration(
 with blip.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transactions_api.TransactionsApi(api_client)
-    batch_id = "batch_id_example" # str |  (optional)
+    batch_id = "batch_id_example" # str, none_type |  (optional)
     limit = 500 # int |  (optional) if omitted the server will use the default value of 500
     skip = 0 # int |  (optional) if omitted the server will use the default value of 0
 
@@ -144,13 +144,13 @@ with blip.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batch_id** | **str**|  | [optional]
+ **batch_id** | **str, none_type**|  | [optional]
  **limit** | **int**|  | [optional] if omitted the server will use the default value of 500
  **skip** | **int**|  | [optional] if omitted the server will use the default value of 0
 
 ### Return type
 
-[**[Transaction]**](Transaction.md)
+[**[Transaction], none_type**](Transaction.md)
 
 ### Authorization
 

@@ -81,12 +81,12 @@ class TransactionUpdate(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str,),  # noqa: E501
-            'amount': (float,),  # noqa: E501
-            'date': (none_type,),  # noqa: E501
-            'account_id': (str,),  # noqa: E501
-            'origin_id': (str,),  # noqa: E501
-            'user_id': (str,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'amount': (float, none_type,),  # noqa: E501
+            'date': (none_type, none_type,),  # noqa: E501
+            'account_id': (str, none_type,),  # noqa: E501
+            'origin_id': (str, none_type,),  # noqa: E501
+            'user_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -144,12 +144,12 @@ class TransactionUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
-            amount (float): [optional]  # noqa: E501
-            date (none_type): [optional]  # noqa: E501
-            account_id (str): [optional]  # noqa: E501
-            origin_id (str): [optional]  # noqa: E501
-            user_id (str): [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
+            amount (float, none_type): [optional]  # noqa: E501
+            date (none_type, none_type): [optional]  # noqa: E501
+            account_id (str, none_type): [optional]  # noqa: E501
+            origin_id (str, none_type): [optional]  # noqa: E501
+            user_id (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -231,12 +231,12 @@ class TransactionUpdate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
-            amount (float): [optional]  # noqa: E501
-            date (none_type): [optional]  # noqa: E501
-            account_id (str): [optional]  # noqa: E501
-            origin_id (str): [optional]  # noqa: E501
-            user_id (str): [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
+            amount (float, none_type): [optional]  # noqa: E501
+            date (none_type, none_type): [optional]  # noqa: E501
+            account_id (str, none_type): [optional]  # noqa: E501
+            origin_id (str, none_type): [optional]  # noqa: E501
+            user_id (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -83,13 +83,13 @@ class BillerCreate(ModelNormal):
         return {
             'origin_id': (str,),  # noqa: E501
             'origin_name': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'display_name': (str,),  # noqa: E501
-            'domain': (str,),  # noqa: E501
-            'logo_url': (str,),  # noqa: E501
-            'login_url': (str,),  # noqa: E501
-            'url': (str,),  # noqa: E501
-            'categories': ([str],),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'display_name': (str, none_type,),  # noqa: E501
+            'domain': (str, none_type,),  # noqa: E501
+            'logo_url': (str, none_type,),  # noqa: E501
+            'login_url': (str, none_type,),  # noqa: E501
+            'url': (str, none_type,),  # noqa: E501
+            'categories': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -154,13 +154,13 @@ class BillerCreate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
-            display_name (str): [optional]  # noqa: E501
-            domain (str): [optional]  # noqa: E501
-            logo_url (str): [optional]  # noqa: E501
-            login_url (str): [optional]  # noqa: E501
-            url (str): [optional]  # noqa: E501
-            categories ([str]): [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
+            display_name (str, none_type): [optional]  # noqa: E501
+            domain (str, none_type): [optional]  # noqa: E501
+            logo_url (str, none_type): [optional]  # noqa: E501
+            login_url (str, none_type): [optional]  # noqa: E501
+            url (str, none_type): [optional]  # noqa: E501
+            categories ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -248,13 +248,13 @@ class BillerCreate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
-            display_name (str): [optional]  # noqa: E501
-            domain (str): [optional]  # noqa: E501
-            logo_url (str): [optional]  # noqa: E501
-            login_url (str): [optional]  # noqa: E501
-            url (str): [optional]  # noqa: E501
-            categories ([str]): [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
+            display_name (str, none_type): [optional]  # noqa: E501
+            domain (str, none_type): [optional]  # noqa: E501
+            logo_url (str, none_type): [optional]  # noqa: E501
+            login_url (str, none_type): [optional]  # noqa: E501
+            url (str, none_type): [optional]  # noqa: E501
+            categories ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

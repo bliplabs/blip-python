@@ -99,7 +99,7 @@ class TransactionsApi(object):
         )
         self.get_transactions_endpoint = _Endpoint(
             settings={
-                'response_type': ([Transaction],),
+                'response_type': ([Transaction], none_type,),
                 'auth': [
                     'HTTPBasic'
                 ],
@@ -116,6 +116,7 @@ class TransactionsApi(object):
                 ],
                 'required': [],
                 'nullable': [
+                    'batch_id',
                 ],
                 'enum': [
                 ],
@@ -129,7 +130,7 @@ class TransactionsApi(object):
                 },
                 'openapi_types': {
                     'batch_id':
-                        (str,),
+                        (str, none_type,),
                     'limit':
                         (int,),
                     'skip':
@@ -347,7 +348,7 @@ class TransactionsApi(object):
 
 
         Keyword Args:
-            batch_id (str): [optional]
+            batch_id (str, none_type): [optional]
             limit (int): [optional] if omitted the server will use the default value of 500
             skip (int): [optional] if omitted the server will use the default value of 0
             _return_http_data_only (bool): response data without head status
@@ -371,7 +372,7 @@ class TransactionsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [Transaction]
+            [Transaction], none_type
                 If the method is called asynchronously, returns the request
                 thread.
         """
