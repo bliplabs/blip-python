@@ -120,16 +120,21 @@ class BillersApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('id',): {
+
+                        'inclusive_minimum': 0,
+                    },
                 },
                 'allowed_values': {
                 },
                 'openapi_types': {
                     'id':
-                        (str,),
+                        (int,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -217,16 +222,21 @@ class BillersApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('id',): {
+
+                        'inclusive_minimum': 0,
+                    },
                 },
                 'allowed_values': {
                 },
                 'openapi_types': {
                     'id':
-                        (str,),
+                        (int,),
                     'biller_update':
                         (BillerUpdate,),
                 },
@@ -332,7 +342,7 @@ class BillersApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str):
+            id (int):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -460,7 +470,7 @@ class BillersApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str):
+            id (int):
             biller_update (BillerUpdate):
 
         Keyword Args:

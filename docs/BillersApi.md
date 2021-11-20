@@ -130,7 +130,7 @@ configuration = blip.Configuration(
 with blip.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = billers_api.BillersApi(api_client)
-    id = "id_example" # str | 
+    id = 0.0 # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -146,7 +146,7 @@ with blip.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  |
+ **id** | **int**|  |
 
 ### Return type
 
@@ -271,7 +271,7 @@ configuration = blip.Configuration(
 with blip.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = billers_api.BillersApi(api_client)
-    id = "id_example" # str | 
+    id = 0.0 # int | 
     biller_update = BillerUpdate(
         name="name_example",
         display_name="display_name_example",
@@ -298,7 +298,7 @@ with blip.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  |
+ **id** | **int**|  |
  **biller_update** | [**BillerUpdate**](BillerUpdate.md)|  |
 
 ### Return type

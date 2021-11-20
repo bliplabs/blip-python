@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_transactions**](TransactionsApi.md#add_transactions) | **POST** /v1/transactions | Add Transactions
 [**get_transactions**](TransactionsApi.md#get_transactions) | **GET** /v1/transactions | Get Transactions
+[**get_transactions_results**](TransactionsApi.md#get_transactions_results) | **GET** /v1/transactions/results | Get Transactions Results
 [**get_transactions_status**](TransactionsApi.md#get_transactions_status) | **GET** /v1/transactions/status | Get Transactions Status
 [**update_transaction**](TransactionsApi.md#update_transaction) | **PUT** /v1/transactions/{id} | Update Transaction
 
@@ -125,7 +126,7 @@ configuration = blip.Configuration(
 with blip.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transactions_api.TransactionsApi(api_client)
-    batch_id = "batch_id_example" # str, none_type |  (optional)
+    batch_id = "batch_gCu2LC4aWwWL9Y864DZta" # str, none_type |  (optional)
     limit = 500 # int |  (optional) if omitted the server will use the default value of 500
     skip = 0 # int |  (optional) if omitted the server will use the default value of 0
 
@@ -171,6 +172,72 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_transactions_results**
+> bool, date, datetime, dict, float, int, list, str, none_type get_transactions_results()
+
+Get Transactions Results
+
+Get the suggested billers.
+
+### Example
+
+* Basic Authentication (HTTPBasic):
+
+```python
+import time
+import blip
+from blip.api import transactions_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+
+# The client must also configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+configuration = blip.Configuration(
+    host = 'http://localhost',
+    username = 'YOUR_API_KEY',
+)
+
+# Enter a context with an instance of the API client
+with blip.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = transactions_api.TransactionsApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Get Transactions Results
+        api_response = api_instance.get_transactions_results()
+        pprint(api_response)
+    except blip.ApiException as e:
+        print("Exception when calling TransactionsApi->get_transactions_results: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**bool, date, datetime, dict, float, int, list, str, none_type**
+
+### Authorization
+
+[HTTPBasic](../README.md#HTTPBasic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_transactions_status**
 > TransactionCreateMultiResponse get_transactions_status(batch_id)
 
@@ -203,7 +270,7 @@ configuration = blip.Configuration(
 with blip.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transactions_api.TransactionsApi(api_client)
-    batch_id = "batch_id_example" # str | 
+    batch_id = "batch_gCu2LC4aWwWL9Y864DZta" # str | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -277,7 +344,7 @@ configuration = blip.Configuration(
 with blip.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transactions_api.TransactionsApi(api_client)
-    id = "id_example" # str | 
+    id = "batch_gCu2LC4aWwWL9Y864DZta" # str | 
     transaction_update = TransactionUpdate(
         name="name_example",
         amount=3.14,
