@@ -31,13 +31,13 @@ try:
     print(api_response)
 
     transactions_status_resp = blip.transactions.get_transactions_status(
-        api_response["batch_id"]
+        batch_id=api_response["batch_id"]
     )
     print(transactions_status_resp)
 
-    while transactions_status_resp.get("complete") == False:
+    while transactions_status_resp[0].get("complete") == False:
         transactions_status_resp = blip.transactions.get_transactions_status(
-            api_response["batch_id"]
+            batch_id=api_response["batch_id"]
         )
         print(transactions_status_resp)
 

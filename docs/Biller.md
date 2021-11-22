@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
 **origin_id** | **str** |  | 
-**display_name** | **str, none_type** |  | [optional] 
 **domain** | **str, none_type** |  | [optional] 
 **logo_url** | **str, none_type** |  | [optional] 
 **login_url** | **str, none_type** |  | [optional] 

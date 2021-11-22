@@ -46,7 +46,6 @@ with blip.ApiClient(configuration) as api_client:
     biller_create = [
         BillerCreate(
             name="name_example",
-            display_name="display_name_example",
             domain="domain_example",
             logo_url="logo_url_example",
             login_url="login_url_example",
@@ -56,6 +55,7 @@ with blip.ApiClient(configuration) as api_client:
             ],
             origin_id="origin_id_example",
             origin_name="origin_name_example",
+            display_name="display_name_example",
         ),
     ] # [BillerCreate] | 
 
@@ -274,7 +274,6 @@ with blip.ApiClient(configuration) as api_client:
     id = 0.0 # int | 
     biller_update = BillerUpdate(
         name="name_example",
-        display_name="display_name_example",
         domain="domain_example",
         logo_url="logo_url_example",
         login_url="login_url_example",
@@ -282,6 +281,7 @@ with blip.ApiClient(configuration) as api_client:
         categories=[
             "categories_example",
         ],
+        display_name="display_name_example",
     ) # BillerUpdate | 
 
     # example passing only required values which don't have defaults set

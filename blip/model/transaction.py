@@ -86,7 +86,6 @@ class Transaction(ModelNormal):
             'date': (date,),  # noqa: E501
             'user_id': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'institution_id': (str,),  # noqa: E501
             'batch_id': (str,),  # noqa: E501
             'account_id': (str, none_type,),  # noqa: E501
             'origin_id': (str, none_type,),  # noqa: E501
@@ -103,7 +102,6 @@ class Transaction(ModelNormal):
         'date': 'date',  # noqa: E501
         'user_id': 'user_id',  # noqa: E501
         'id': 'id',  # noqa: E501
-        'institution_id': 'institution_id',  # noqa: E501
         'batch_id': 'batch_id',  # noqa: E501
         'account_id': 'account_id',  # noqa: E501
         'origin_id': 'origin_id',  # noqa: E501
@@ -116,7 +114,7 @@ class Transaction(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, amount, date, user_id, id, institution_id, batch_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, amount, date, user_id, id, batch_id, *args, **kwargs):  # noqa: E501
         """Transaction - a model defined in OpenAPI
 
         Args:
@@ -125,7 +123,6 @@ class Transaction(ModelNormal):
             date (date):
             user_id (str):
             id (str):
-            institution_id (str):
             batch_id (str):
 
         Keyword Args:
@@ -193,7 +190,6 @@ class Transaction(ModelNormal):
         self.date = date
         self.user_id = user_id
         self.id = id
-        self.institution_id = institution_id
         self.batch_id = batch_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -215,7 +211,7 @@ class Transaction(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, amount, date, user_id, id, institution_id, batch_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, amount, date, user_id, id, batch_id, *args, **kwargs):  # noqa: E501
         """Transaction - a model defined in OpenAPI
 
         Args:
@@ -224,7 +220,6 @@ class Transaction(ModelNormal):
             date (date):
             user_id (str):
             id (str):
-            institution_id (str):
             batch_id (str):
 
         Keyword Args:
@@ -290,7 +285,6 @@ class Transaction(ModelNormal):
         self.date = date
         self.user_id = user_id
         self.id = id
-        self.institution_id = institution_id
         self.batch_id = batch_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

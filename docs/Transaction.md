@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **date** | **date** |  | 
 **user_id** | **str** |  | 
 **id** | **str** |  | 
-**institution_id** | **str** |  | 
 **batch_id** | **str** |  | 
 **account_id** | **str, none_type** |  | [optional] 
 **origin_id** | **str, none_type** |  | [optional] 

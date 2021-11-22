@@ -86,7 +86,6 @@ class Biller(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'origin_id': (str,),  # noqa: E501
-            'display_name': (str, none_type,),  # noqa: E501
             'domain': (str, none_type,),  # noqa: E501
             'logo_url': (str, none_type,),  # noqa: E501
             'login_url': (str, none_type,),  # noqa: E501
@@ -103,7 +102,6 @@ class Biller(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'origin_id': 'origin_id',  # noqa: E501
-        'display_name': 'display_name',  # noqa: E501
         'domain': 'domain',  # noqa: E501
         'logo_url': 'logo_url',  # noqa: E501
         'login_url': 'login_url',  # noqa: E501
@@ -157,7 +155,6 @@ class Biller(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            display_name (str, none_type): [optional]  # noqa: E501
             domain (str, none_type): [optional]  # noqa: E501
             logo_url (str, none_type): [optional]  # noqa: E501
             login_url (str, none_type): [optional]  # noqa: E501
@@ -251,7 +248,6 @@ class Biller(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            display_name (str, none_type): [optional]  # noqa: E501
             domain (str, none_type): [optional]  # noqa: E501
             logo_url (str, none_type): [optional]  # noqa: E501
             login_url (str, none_type): [optional]  # noqa: E501

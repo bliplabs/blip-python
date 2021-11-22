@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_transactions_results**
-> bool, date, datetime, dict, float, int, list, str, none_type get_transactions_results()
+> [TransactionResultsResponse], none_type get_transactions_results()
 
 Get Transactions Results
 
@@ -187,6 +187,7 @@ Get the suggested billers.
 import time
 import blip
 from blip.api import transactions_api
+from blip.model.transaction_results_response import TransactionResultsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -218,7 +219,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**bool, date, datetime, dict, float, int, list, str, none_type**
+[**[TransactionResultsResponse], none_type**](TransactionResultsResponse.md)
 
 ### Authorization
 
@@ -239,11 +240,11 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_transactions_status**
-> TransactionCreateMultiResponse get_transactions_status(batch_id)
+> [TransactionCreateMultiResponse], none_type get_transactions_status()
 
 Get Transactions Status
 
-Get the status of the transactions batch.
+Get the status of the transactions.
 
 ### Example
 
@@ -270,12 +271,13 @@ configuration = blip.Configuration(
 with blip.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transactions_api.TransactionsApi(api_client)
-    batch_id = "batch_gCu2LC4aWwWL9Y864DZta" # str | 
+    batch_id = "batch_gCu2LC4aWwWL9Y864DZta" # str, none_type |  (optional)
 
     # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Get Transactions Status
-        api_response = api_instance.get_transactions_status(batch_id)
+        api_response = api_instance.get_transactions_status(batch_id=batch_id)
         pprint(api_response)
     except blip.ApiException as e:
         print("Exception when calling TransactionsApi->get_transactions_status: %s\n" % e)
@@ -286,11 +288,11 @@ with blip.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batch_id** | **str**|  |
+ **batch_id** | **str, none_type**|  | [optional]
 
 ### Return type
 
-[**TransactionCreateMultiResponse**](TransactionCreateMultiResponse.md)
+[**[TransactionCreateMultiResponse], none_type**](TransactionCreateMultiResponse.md)
 
 ### Authorization
 

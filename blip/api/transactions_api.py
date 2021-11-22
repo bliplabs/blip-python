@@ -19,12 +19,13 @@ from blip.model_utils import (  # noqa: F401
     datetime,
     file_type,
     none_type,
-    validate_and_convert_types,
+    validate_and_convert_types
 )
 from blip.model.http_validation_error import HTTPValidationError
 from blip.model.transaction import Transaction
 from blip.model.transaction_create import TransactionCreate
 from blip.model.transaction_create_multi_response import TransactionCreateMultiResponse
+from blip.model.transaction_results_response import TransactionResultsResponse
 from blip.model.transaction_update import TransactionUpdate
 
 
@@ -41,257 +42,306 @@ class TransactionsApi(object):
         self.api_client = api_client
         self.add_transactions_endpoint = _Endpoint(
             settings={
-                "response_type": (TransactionCreateMultiResponse,),
-                "auth": ["HTTPBasic"],
-                "endpoint_path": "/v1/transactions",
-                "operation_id": "add_transactions",
-                "http_method": "POST",
-                "servers": None,
+                'response_type': (TransactionCreateMultiResponse,),
+                'auth': [
+                    'HTTPBasic'
+                ],
+                'endpoint_path': '/v1/transactions',
+                'operation_id': 'add_transactions',
+                'http_method': 'POST',
+                'servers': None,
             },
             params_map={
-                "all": [
-                    "transaction_create",
+                'all': [
+                    'transaction_create',
                 ],
-                "required": [
-                    "transaction_create",
+                'required': [
+                    'transaction_create',
                 ],
-                "nullable": [],
-                "enum": [],
-                "validation": [
-                    "transaction_create",
+                'nullable': [
                 ],
+                'enum': [
+                ],
+                'validation': [
+                    'transaction_create',
+                ]
             },
             root_map={
-                "validations": {
-                    ("transaction_create",): {
-                        "max_items": 1000,
-                        "min_items": 1,
+                'validations': {
+                    ('transaction_create',): {
+
+                        'max_items': 1000,
+                        'min_items': 1,
                     },
                 },
-                "allowed_values": {},
-                "openapi_types": {
-                    "transaction_create": ([TransactionCreate],),
+                'allowed_values': {
                 },
-                "attribute_map": {},
-                "location_map": {
-                    "transaction_create": "body",
+                'openapi_types': {
+                    'transaction_create':
+                        ([TransactionCreate],),
                 },
-                "collection_format_map": {},
+                'attribute_map': {
+                },
+                'location_map': {
+                    'transaction_create': 'body',
+                },
+                'collection_format_map': {
+                }
             },
             headers_map={
-                "accept": ["application/json"],
-                "content_type": ["application/json"],
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
             },
-            api_client=api_client,
+            api_client=api_client
         )
         self.get_transactions_endpoint = _Endpoint(
             settings={
-                "response_type": (
-                    [Transaction],
-                    none_type,
-                ),
-                "auth": ["HTTPBasic"],
-                "endpoint_path": "/v1/transactions",
-                "operation_id": "get_transactions",
-                "http_method": "GET",
-                "servers": None,
+                'response_type': ([Transaction], none_type,),
+                'auth': [
+                    'HTTPBasic'
+                ],
+                'endpoint_path': '/v1/transactions',
+                'operation_id': 'get_transactions',
+                'http_method': 'GET',
+                'servers': None,
             },
             params_map={
-                "all": [
-                    "batch_id",
-                    "limit",
-                    "skip",
+                'all': [
+                    'batch_id',
+                    'limit',
+                    'skip',
                 ],
-                "required": [],
-                "nullable": [
-                    "batch_id",
+                'required': [],
+                'nullable': [
+                    'batch_id',
                 ],
-                "enum": [],
-                "validation": [
-                    "batch_id",
-                    "limit",
+                'enum': [
                 ],
+                'validation': [
+                    'batch_id',
+                    'limit',
+                ]
             },
             root_map={
-                "validations": {
-                    ("batch_id",): {
-                        "regex": {
-                            "pattern": r"(batch_)([a-zA-Z0-9]{21})",  # noqa: E501
+                'validations': {
+                    ('batch_id',): {
+
+                        'regex': {
+                            'pattern': r'(batch_)([a-zA-Z0-9]{21})',  # noqa: E501
                         },
                     },
-                    ("limit",): {
-                        "inclusive_maximum": 1000,
+                    ('limit',): {
+
+                        'inclusive_maximum': 1000,
                     },
                 },
-                "allowed_values": {},
-                "openapi_types": {
-                    "batch_id": (
-                        str,
-                        none_type,
-                    ),
-                    "limit": (int,),
-                    "skip": (int,),
+                'allowed_values': {
                 },
-                "attribute_map": {
-                    "batch_id": "batch_id",
-                    "limit": "limit",
-                    "skip": "skip",
+                'openapi_types': {
+                    'batch_id':
+                        (str, none_type,),
+                    'limit':
+                        (int,),
+                    'skip':
+                        (int,),
                 },
-                "location_map": {
-                    "batch_id": "query",
-                    "limit": "query",
-                    "skip": "query",
+                'attribute_map': {
+                    'batch_id': 'batch_id',
+                    'limit': 'limit',
+                    'skip': 'skip',
                 },
-                "collection_format_map": {},
+                'location_map': {
+                    'batch_id': 'query',
+                    'limit': 'query',
+                    'skip': 'query',
+                },
+                'collection_format_map': {
+                }
             },
             headers_map={
-                "accept": ["application/json"],
-                "content_type": [],
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
-            api_client=api_client,
+            api_client=api_client
         )
         self.get_transactions_results_endpoint = _Endpoint(
             settings={
-                "response_type": (
-                    bool,
-                    date,
-                    datetime,
-                    dict,
-                    float,
-                    int,
-                    list,
-                    str,
-                    none_type,
-                ),
-                "auth": ["HTTPBasic"],
-                "endpoint_path": "/v1/transactions/results",
-                "operation_id": "get_transactions_results",
-                "http_method": "GET",
-                "servers": None,
+                'response_type': ([TransactionResultsResponse], none_type,),
+                'auth': [
+                    'HTTPBasic'
+                ],
+                'endpoint_path': '/v1/transactions/results',
+                'operation_id': 'get_transactions_results',
+                'http_method': 'GET',
+                'servers': None,
             },
             params_map={
-                "all": [],
-                "required": [],
-                "nullable": [],
-                "enum": [],
-                "validation": [],
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
             },
             root_map={
-                "validations": {},
-                "allowed_values": {},
-                "openapi_types": {},
-                "attribute_map": {},
-                "location_map": {},
-                "collection_format_map": {},
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
             },
             headers_map={
-                "accept": ["application/json"],
-                "content_type": [],
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
-            api_client=api_client,
+            api_client=api_client
         )
         self.get_transactions_status_endpoint = _Endpoint(
             settings={
-                "response_type": (TransactionCreateMultiResponse,),
-                "auth": ["HTTPBasic"],
-                "endpoint_path": "/v1/transactions/status",
-                "operation_id": "get_transactions_status",
-                "http_method": "GET",
-                "servers": None,
+                'response_type': ([TransactionCreateMultiResponse], none_type,),
+                'auth': [
+                    'HTTPBasic'
+                ],
+                'endpoint_path': '/v1/transactions/status',
+                'operation_id': 'get_transactions_status',
+                'http_method': 'GET',
+                'servers': None,
             },
             params_map={
-                "all": [
-                    "batch_id",
+                'all': [
+                    'batch_id',
                 ],
-                "required": [
-                    "batch_id",
+                'required': [],
+                'nullable': [
+                    'batch_id',
                 ],
-                "nullable": [],
-                "enum": [],
-                "validation": [
-                    "batch_id",
+                'enum': [
                 ],
+                'validation': [
+                    'batch_id',
+                ]
             },
             root_map={
-                "validations": {
-                    ("batch_id",): {
-                        "regex": {
-                            "pattern": r"(batch_)([a-zA-Z0-9]{21})",  # noqa: E501
+                'validations': {
+                    ('batch_id',): {
+
+                        'regex': {
+                            'pattern': r'(batch_)([a-zA-Z0-9]{21})',  # noqa: E501
                         },
                     },
                 },
-                "allowed_values": {},
-                "openapi_types": {
-                    "batch_id": (str,),
+                'allowed_values': {
                 },
-                "attribute_map": {
-                    "batch_id": "batch_id",
+                'openapi_types': {
+                    'batch_id':
+                        (str, none_type,),
                 },
-                "location_map": {
-                    "batch_id": "query",
+                'attribute_map': {
+                    'batch_id': 'batch_id',
                 },
-                "collection_format_map": {},
+                'location_map': {
+                    'batch_id': 'query',
+                },
+                'collection_format_map': {
+                }
             },
             headers_map={
-                "accept": ["application/json"],
-                "content_type": [],
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
-            api_client=api_client,
+            api_client=api_client
         )
         self.update_transaction_endpoint = _Endpoint(
             settings={
-                "response_type": (Transaction,),
-                "auth": ["HTTPBasic"],
-                "endpoint_path": "/v1/transactions/{id}",
-                "operation_id": "update_transaction",
-                "http_method": "PUT",
-                "servers": None,
+                'response_type': (Transaction,),
+                'auth': [
+                    'HTTPBasic'
+                ],
+                'endpoint_path': '/v1/transactions/{id}',
+                'operation_id': 'update_transaction',
+                'http_method': 'PUT',
+                'servers': None,
             },
             params_map={
-                "all": [
-                    "id",
-                    "transaction_update",
+                'all': [
+                    'id',
+                    'transaction_update',
                 ],
-                "required": [
-                    "id",
-                    "transaction_update",
+                'required': [
+                    'id',
+                    'transaction_update',
                 ],
-                "nullable": [],
-                "enum": [],
-                "validation": [
-                    "id",
+                'nullable': [
                 ],
+                'enum': [
+                ],
+                'validation': [
+                    'id',
+                ]
             },
             root_map={
-                "validations": {
-                    ("id",): {
-                        "regex": {
-                            "pattern": r"(batch_)([a-zA-Z0-9]{21})",  # noqa: E501
+                'validations': {
+                    ('id',): {
+
+                        'regex': {
+                            'pattern': r'(batch_)([a-zA-Z0-9]{21})',  # noqa: E501
                         },
                     },
                 },
-                "allowed_values": {},
-                "openapi_types": {
-                    "id": (str,),
-                    "transaction_update": (TransactionUpdate,),
+                'allowed_values': {
                 },
-                "attribute_map": {
-                    "id": "id",
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'transaction_update':
+                        (TransactionUpdate,),
                 },
-                "location_map": {
-                    "id": "path",
-                    "transaction_update": "body",
+                'attribute_map': {
+                    'id': 'id',
                 },
-                "collection_format_map": {},
+                'location_map': {
+                    'id': 'path',
+                    'transaction_update': 'body',
+                },
+                'collection_format_map': {
+                }
             },
             headers_map={
-                "accept": ["application/json"],
-                "content_type": ["application/json"],
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
             },
-            api_client=api_client,
+            api_client=api_client
         )
 
-    def add_transactions(self, transaction_create, **kwargs):
+    def add_transactions(
+        self,
+        transaction_create,
+        **kwargs
+    ):
         """Add Transactions  # noqa: E501
 
         Add a new batch of transactions.  # noqa: E501
@@ -330,17 +380,33 @@ class TransactionsApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs["async_req"] = kwargs.get("async_req", False)
-        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
-        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
-        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
-        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
-        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
-        kwargs["_host_index"] = kwargs.get("_host_index")
-        kwargs["transaction_create"] = transaction_create
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['transaction_create'] = \
+            transaction_create
         return self.add_transactions_endpoint.call_with_http_info(**kwargs)
 
-    def get_transactions(self, **kwargs):
+    def get_transactions(
+        self,
+        **kwargs
+    ):
         """Get Transactions  # noqa: E501
 
         Get list of transactions.  # noqa: E501
@@ -380,16 +446,31 @@ class TransactionsApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs["async_req"] = kwargs.get("async_req", False)
-        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
-        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
-        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
-        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
-        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
-        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_transactions_endpoint.call_with_http_info(**kwargs)
 
-    def get_transactions_results(self, **kwargs):
+    def get_transactions_results(
+        self,
+        **kwargs
+    ):
         """Get Transactions Results  # noqa: E501
 
         Get the suggested billers.  # noqa: E501
@@ -422,33 +503,47 @@ class TransactionsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            bool, date, datetime, dict, float, int, list, str, none_type
+            [TransactionResultsResponse], none_type
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs["async_req"] = kwargs.get("async_req", False)
-        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
-        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
-        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
-        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
-        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
-        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_transactions_results_endpoint.call_with_http_info(**kwargs)
 
-    def get_transactions_status(self, batch_id, **kwargs):
+    def get_transactions_status(
+        self,
+        **kwargs
+    ):
         """Get Transactions Status  # noqa: E501
 
-        Get the status of the transactions batch.  # noqa: E501
+        Get the status of the transactions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_transactions_status(batch_id, async_req=True)
+        >>> thread = api.get_transactions_status(async_req=True)
         >>> result = thread.get()
 
-        Args:
-            batch_id (str):
 
         Keyword Args:
+            batch_id (str, none_type): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -470,21 +565,37 @@ class TransactionsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            TransactionCreateMultiResponse
+            [TransactionCreateMultiResponse], none_type
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs["async_req"] = kwargs.get("async_req", False)
-        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
-        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
-        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
-        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
-        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
-        kwargs["_host_index"] = kwargs.get("_host_index")
-        kwargs["batch_id"] = batch_id
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
         return self.get_transactions_status_endpoint.call_with_http_info(**kwargs)
 
-    def update_transaction(self, id, transaction_update, **kwargs):
+    def update_transaction(
+        self,
+        id,
+        transaction_update,
+        **kwargs
+    ):
         """Update Transaction  # noqa: E501
 
         Update an transaction.  # noqa: E501
@@ -524,13 +635,28 @@ class TransactionsApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs["async_req"] = kwargs.get("async_req", False)
-        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
-        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
-        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
-        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
-        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
-        kwargs["_host_index"] = kwargs.get("_host_index")
-        kwargs["id"] = id
-        kwargs["transaction_update"] = transaction_update
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['transaction_update'] = \
+            transaction_update
         return self.update_transaction_endpoint.call_with_http_info(**kwargs)
+

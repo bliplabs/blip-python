@@ -63,7 +63,6 @@ with blip.ApiClient(configuration) as api_client:
     biller_create = [
         BillerCreate(
             name="name_example",
-            display_name="display_name_example",
             domain="domain_example",
             logo_url="logo_url_example",
             login_url="login_url_example",
@@ -73,6 +72,7 @@ with blip.ApiClient(configuration) as api_client:
             ],
             origin_id="origin_id_example",
             origin_name="origin_name_example",
+            display_name="display_name_example",
         ),
     ] # [BillerCreate] | 
 
@@ -106,11 +106,14 @@ Class | Method | HTTP request | Description
  - [Biller](docs/Biller.md)
  - [BillerCreate](docs/BillerCreate.md)
  - [BillerCreateMultiResponse](docs/BillerCreateMultiResponse.md)
+ - [BillerInResult](docs/BillerInResult.md)
  - [BillerUpdate](docs/BillerUpdate.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [Transaction](docs/Transaction.md)
  - [TransactionCreate](docs/TransactionCreate.md)
  - [TransactionCreateMultiResponse](docs/TransactionCreateMultiResponse.md)
+ - [TransactionInResult](docs/TransactionInResult.md)
+ - [TransactionResultsResponse](docs/TransactionResultsResponse.md)
  - [TransactionUpdate](docs/TransactionUpdate.md)
  - [ValidationError](docs/ValidationError.md)
 
