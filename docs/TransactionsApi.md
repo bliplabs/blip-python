@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 Get Transactions Results
 
-Get the suggested billers.
+Get transaction results.
 
 ### Example
 
@@ -187,6 +187,7 @@ Get the suggested billers.
 import time
 import blip
 from blip.api import transactions_api
+from blip.model.http_validation_error import HTTPValidationError
 from blip.model.transaction_results_response import TransactionResultsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -203,11 +204,14 @@ configuration = blip.Configuration(
 with blip.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transactions_api.TransactionsApi(api_client)
+    batch_id = "batch_gCu2LC4aWwWL9Y864DZta" # str, none_type |  (optional)
+    user_id = "user_id_example" # str, none_type |  (optional)
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Get Transactions Results
-        api_response = api_instance.get_transactions_results()
+        api_response = api_instance.get_transactions_results(batch_id=batch_id, user_id=user_id)
         pprint(api_response)
     except blip.ApiException as e:
         print("Exception when calling TransactionsApi->get_transactions_results: %s\n" % e)
@@ -215,7 +219,11 @@ with blip.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batch_id** | **str, none_type**|  | [optional]
+ **user_id** | **str, none_type**|  | [optional]
 
 ### Return type
 
@@ -236,6 +244,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

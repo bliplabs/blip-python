@@ -174,7 +174,7 @@ class TransactionResultsResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            suggested_billers ([BillerInResult], none_type): [optional] if omitted the server will use the default value of []  # noqa: E501
+            suggested_billers ([BillerInResult], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -278,7 +278,7 @@ class TransactionResultsResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            suggested_billers ([BillerInResult], none_type): [optional] if omitted the server will use the default value of []  # noqa: E501
+            suggested_billers ([BillerInResult], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -183,25 +183,44 @@ class TransactionsApi(object):
             },
             params_map={
                 'all': [
+                    'batch_id',
+                    'user_id',
                 ],
                 'required': [],
                 'nullable': [
+                    'batch_id',
+                    'user_id',
                 ],
                 'enum': [
                 ],
                 'validation': [
+                    'batch_id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('batch_id',): {
+
+                        'regex': {
+                            'pattern': r'(batch_)([a-zA-Z0-9]{21})',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'batch_id':
+                        (str, none_type,),
+                    'user_id':
+                        (str, none_type,),
                 },
                 'attribute_map': {
+                    'batch_id': 'batch_id',
+                    'user_id': 'user_id',
                 },
                 'location_map': {
+                    'batch_id': 'query',
+                    'user_id': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -473,7 +492,7 @@ class TransactionsApi(object):
     ):
         """Get Transactions Results  # noqa: E501
 
-        Get the suggested billers.  # noqa: E501
+        Get transaction results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -482,6 +501,8 @@ class TransactionsApi(object):
 
 
         Keyword Args:
+            batch_id (str, none_type): [optional]
+            user_id (str, none_type): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

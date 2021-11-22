@@ -48,5 +48,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_biller_in_result.py
 tox.ini

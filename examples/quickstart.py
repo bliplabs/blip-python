@@ -41,7 +41,9 @@ try:
         )
         print(transactions_status_resp)
 
-    results_resp = blip.transactions.get_transactions_results()
+    results_resp = blip.transactions.get_transactions_results(
+        batch_id=api_response["batch_id"]
+    )
     print(results_resp)
 
 except blip.ApiException as e:
