@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_billers**](BillersApi.md#add_billers) | **POST** /v1/billers | Add Billers
+[**enhance_billers**](BillersApi.md#enhance_billers) | **POST** /v1/billers/enhance | Enhance Billers
 [**get_biller**](BillersApi.md#get_biller) | **GET** /v1/billers/{id} | Get Biller
 [**get_billers_status**](BillersApi.md#get_billers_status) | **GET** /v1/billers/status | Get Billers Status
 [**update_biller**](BillersApi.md#update_biller) | **PUT** /v1/billers/{id} | Update Biller
@@ -47,7 +48,6 @@ with blip.ApiClient(configuration) as api_client:
         BillerCreate(
             name="name_example",
             domain="domain_example",
-            logo_url="logo_url_example",
             login_url="login_url_example",
             url="url_example",
             categories=[
@@ -56,6 +56,7 @@ with blip.ApiClient(configuration) as api_client:
             origin_id="origin_id_example",
             origin_name="origin_name_example",
             display_name="display_name_example",
+            logo_url="logo_url_example",
         ),
     ] # [BillerCreate] | 
 
@@ -78,6 +79,84 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BillerCreateMultiResponse**](BillerCreateMultiResponse.md)
+
+### Authorization
+
+[HTTPBasic](../README.md#HTTPBasic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **enhance_billers**
+> [BillerEnhanceResult], none_type enhance_billers(biller_enhance_create)
+
+Enhance Billers
+
+Enhance billers.
+
+### Example
+
+* Basic Authentication (HTTPBasic):
+
+```python
+import time
+import blip
+from blip.api import billers_api
+from blip.model.http_validation_error import HTTPValidationError
+from blip.model.biller_enhance_result import BillerEnhanceResult
+from blip.model.biller_enhance_create import BillerEnhanceCreate
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+
+# The client must also configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+configuration = blip.Configuration(
+    host = 'http://localhost',
+    username = 'YOUR_API_KEY',
+)
+
+# Enter a context with an instance of the API client
+with blip.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = billers_api.BillersApi(api_client)
+    biller_enhance_create = [
+        BillerEnhanceCreate(
+            name="name_example",
+        ),
+    ] # [BillerEnhanceCreate] | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Enhance Billers
+        api_response = api_instance.enhance_billers(biller_enhance_create)
+        pprint(api_response)
+    except blip.ApiException as e:
+        print("Exception when calling BillersApi->enhance_billers: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **biller_enhance_create** | [**[BillerEnhanceCreate]**](BillerEnhanceCreate.md)|  |
+
+### Return type
+
+[**[BillerEnhanceResult], none_type**](BillerEnhanceResult.md)
 
 ### Authorization
 
@@ -275,13 +354,13 @@ with blip.ApiClient(configuration) as api_client:
     biller_update = BillerUpdate(
         name="name_example",
         domain="domain_example",
-        logo_url="logo_url_example",
         login_url="login_url_example",
         url="url_example",
         categories=[
             "categories_example",
         ],
         display_name="display_name_example",
+        logo_url="logo_url_example",
     ) # BillerUpdate | 
 
     # example passing only required values which don't have defaults set

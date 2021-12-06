@@ -64,7 +64,6 @@ with blip.ApiClient(configuration) as api_client:
         BillerCreate(
             name="name_example",
             domain="domain_example",
-            logo_url="logo_url_example",
             login_url="login_url_example",
             url="url_example",
             categories=[
@@ -73,6 +72,7 @@ with blip.ApiClient(configuration) as api_client:
             origin_id="origin_id_example",
             origin_name="origin_name_example",
             display_name="display_name_example",
+            logo_url="logo_url_example",
         ),
     ] # [BillerCreate] | 
 
@@ -91,6 +91,7 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BillersApi* | [**add_billers**](docs/BillersApi.md#add_billers) | **POST** /v1/billers | Add Billers
+*BillersApi* | [**enhance_billers**](docs/BillersApi.md#enhance_billers) | **POST** /v1/billers/enhance | Enhance Billers
 *BillersApi* | [**get_biller**](docs/BillersApi.md#get_biller) | **GET** /v1/billers/{id} | Get Biller
 *BillersApi* | [**get_billers_status**](docs/BillersApi.md#get_billers_status) | **GET** /v1/billers/status | Get Billers Status
 *BillersApi* | [**update_biller**](docs/BillersApi.md#update_biller) | **PUT** /v1/billers/{id} | Update Biller
@@ -106,6 +107,8 @@ Class | Method | HTTP request | Description
  - [Biller](docs/Biller.md)
  - [BillerCreate](docs/BillerCreate.md)
  - [BillerCreateMultiResponse](docs/BillerCreateMultiResponse.md)
+ - [BillerEnhanceCreate](docs/BillerEnhanceCreate.md)
+ - [BillerEnhanceResult](docs/BillerEnhanceResult.md)
  - [BillerInResult](docs/BillerInResult.md)
  - [BillerUpdate](docs/BillerUpdate.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)

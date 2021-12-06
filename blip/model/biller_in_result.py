@@ -84,7 +84,6 @@ class BillerInResult(ModelNormal):
             'name': (str,),  # noqa: E501
             'confidence': (float,),  # noqa: E501
             'domain': (str, none_type,),  # noqa: E501
-            'logo_url': (str, none_type,),  # noqa: E501
             'login_url': (str, none_type,),  # noqa: E501
             'url': (str, none_type,),  # noqa: E501
             'categories': ([str], none_type,),  # noqa: E501
@@ -100,7 +99,6 @@ class BillerInResult(ModelNormal):
         'name': 'name',  # noqa: E501
         'confidence': 'confidence',  # noqa: E501
         'domain': 'domain',  # noqa: E501
-        'logo_url': 'logo_url',  # noqa: E501
         'login_url': 'login_url',  # noqa: E501
         'url': 'url',  # noqa: E501
         'categories': 'categories',  # noqa: E501
@@ -153,7 +151,6 @@ class BillerInResult(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             domain (str, none_type): [optional]  # noqa: E501
-            logo_url (str, none_type): [optional]  # noqa: E501
             login_url (str, none_type): [optional]  # noqa: E501
             url (str, none_type): [optional]  # noqa: E501
             categories ([str], none_type): [optional]  # noqa: E501
@@ -246,7 +243,6 @@ class BillerInResult(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             domain (str, none_type): [optional]  # noqa: E501
-            logo_url (str, none_type): [optional]  # noqa: E501
             login_url (str, none_type): [optional]  # noqa: E501
             url (str, none_type): [optional]  # noqa: E501
             categories ([str], none_type): [optional]  # noqa: E501

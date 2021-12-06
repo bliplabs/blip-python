@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**result_id** | **str** |  | 
 **user_id** | **str** |  | 
 **name** | **str** |  | 
 **is_bill** | **bool** |  | 

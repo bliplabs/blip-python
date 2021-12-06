@@ -24,6 +24,8 @@ from blip.model_utils import (  # noqa: F401
 from blip.model.biller import Biller
 from blip.model.biller_create import BillerCreate
 from blip.model.biller_create_multi_response import BillerCreateMultiResponse
+from blip.model.biller_enhance_create import BillerEnhanceCreate
+from blip.model.biller_enhance_result import BillerEnhanceResult
 from blip.model.biller_update import BillerUpdate
 from blip.model.http_validation_error import HTTPValidationError
 
@@ -69,7 +71,7 @@ class BillersApi(object):
                 'validations': {
                     ('biller_create',): {
 
-                        'max_items': 30000,
+                        'max_items': 2000,
                         'min_items': 1,
                     },
                 },
@@ -83,6 +85,64 @@ class BillersApi(object):
                 },
                 'location_map': {
                     'biller_create': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.enhance_billers_endpoint = _Endpoint(
+            settings={
+                'response_type': ([BillerEnhanceResult], none_type,),
+                'auth': [
+                    'HTTPBasic'
+                ],
+                'endpoint_path': '/v1/billers/enhance',
+                'operation_id': 'enhance_billers',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'biller_enhance_create',
+                ],
+                'required': [
+                    'biller_enhance_create',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'biller_enhance_create',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('biller_enhance_create',): {
+
+                        'max_items': 100,
+                        'min_items': 1,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'biller_enhance_create':
+                        ([BillerEnhanceCreate],),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'biller_enhance_create': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -326,6 +386,72 @@ class BillersApi(object):
         kwargs['biller_create'] = \
             biller_create
         return self.add_billers_endpoint.call_with_http_info(**kwargs)
+
+    def enhance_billers(
+        self,
+        biller_enhance_create,
+        **kwargs
+    ):
+        """Enhance Billers  # noqa: E501
+
+        Enhance billers.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.enhance_billers(biller_enhance_create, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            biller_enhance_create ([BillerEnhanceCreate]):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [BillerEnhanceResult], none_type
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['biller_enhance_create'] = \
+            biller_enhance_create
+        return self.enhance_billers_endpoint.call_with_http_info(**kwargs)
 
     def get_biller(
         self,

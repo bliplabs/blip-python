@@ -14,6 +14,8 @@ blip/model/__init__.py
 blip/model/biller.py
 blip/model/biller_create.py
 blip/model/biller_create_multi_response.py
+blip/model/biller_enhance_create.py
+blip/model/biller_enhance_result.py
 blip/model/biller_in_result.py
 blip/model/biller_update.py
 blip/model/http_validation_error.py
@@ -30,6 +32,8 @@ blip/rest.py
 docs/Biller.md
 docs/BillerCreate.md
 docs/BillerCreateMultiResponse.md
+docs/BillerEnhanceCreate.md
+docs/BillerEnhanceResult.md
 docs/BillerInResult.md
 docs/BillerUpdate.md
 docs/BillersApi.md
@@ -48,4 +52,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_biller_enhance_create.py
+test/test_biller_enhance_result.py
 tox.ini

@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **confidence** | **float** |  | 
 **domain** | **str, none_type** |  | [optional] 
-**logo_url** | **str, none_type** |  | [optional] 
 **login_url** | **str, none_type** |  | [optional] 
 **url** | **str, none_type** |  | [optional] 
 **categories** | **[str], none_type** |  | [optional] 

@@ -128,7 +128,7 @@ with blip.ApiClient(configuration) as api_client:
     api_instance = transactions_api.TransactionsApi(api_client)
     batch_id = "batch_gCu2LC4aWwWL9Y864DZta" # str, none_type |  (optional)
     limit = 500 # int |  (optional) if omitted the server will use the default value of 500
-    skip = 0 # int |  (optional) if omitted the server will use the default value of 0
+    skip = 500 # int |  (optional) if omitted the server will use the default value of 500
 
     # example passing only required values which don't have defaults set
     # and optional values
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batch_id** | **str, none_type**|  | [optional]
  **limit** | **int**|  | [optional] if omitted the server will use the default value of 500
- **skip** | **int**|  | [optional] if omitted the server will use the default value of 0
+ **skip** | **int**|  | [optional] if omitted the server will use the default value of 500
 
 ### Return type
 

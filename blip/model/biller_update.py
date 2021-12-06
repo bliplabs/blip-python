@@ -83,11 +83,11 @@ class BillerUpdate(ModelNormal):
         return {
             'name': (str, none_type,),  # noqa: E501
             'domain': (str, none_type,),  # noqa: E501
-            'logo_url': (str, none_type,),  # noqa: E501
             'login_url': (str, none_type,),  # noqa: E501
             'url': (str, none_type,),  # noqa: E501
             'categories': ([str], none_type,),  # noqa: E501
             'display_name': (str, none_type,),  # noqa: E501
+            'logo_url': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -98,11 +98,11 @@ class BillerUpdate(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'domain': 'domain',  # noqa: E501
-        'logo_url': 'logo_url',  # noqa: E501
         'login_url': 'login_url',  # noqa: E501
         'url': 'url',  # noqa: E501
         'categories': 'categories',  # noqa: E501
         'display_name': 'display_name',  # noqa: E501
+        'logo_url': 'logo_url',  # noqa: E501
     }
 
     read_only_vars = {
@@ -148,11 +148,11 @@ class BillerUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
             domain (str, none_type): [optional]  # noqa: E501
-            logo_url (str, none_type): [optional]  # noqa: E501
             login_url (str, none_type): [optional]  # noqa: E501
             url (str, none_type): [optional]  # noqa: E501
             categories ([str], none_type): [optional]  # noqa: E501
             display_name (str, none_type): [optional]  # noqa: E501
+            logo_url (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -236,11 +236,11 @@ class BillerUpdate(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
             domain (str, none_type): [optional]  # noqa: E501
-            logo_url (str, none_type): [optional]  # noqa: E501
             login_url (str, none_type): [optional]  # noqa: E501
             url (str, none_type): [optional]  # noqa: E501
             categories ([str], none_type): [optional]  # noqa: E501
             display_name (str, none_type): [optional]  # noqa: E501
+            logo_url (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
