@@ -1,5 +1,3 @@
-# flake8: noqa
-
 """
     API Reference
 
@@ -10,52 +8,30 @@
 """
 
 
-__version__ = "1.0.0"
+import sys
+import unittest
 
-# import ApiClient
-from blip.api_client import ApiClient
+import blip
+from blip.model.biller import Biller
+globals()['Biller'] = Biller
+from blip.model.biller_search_results import BillerSearchResults
 
-# import Configuration
-from blip.configuration import Configuration
 
-# import exceptions
-from blip.exceptions import OpenApiException
-from blip.exceptions import ApiAttributeError
-from blip.exceptions import ApiTypeError
-from blip.exceptions import ApiValueError
-from blip.exceptions import ApiKeyError
-from blip.exceptions import ApiException
+class TestBillerSearchResults(unittest.TestCase):
+    """BillerSearchResults unit test stubs"""
 
-# Custom additions for easier configuration and usage
-from blip.api import billers_api, transactions_api
+    def setUp(self):
+        pass
 
-host = "http://localhost"
+    def tearDown(self):
+        pass
 
-configuration = Configuration(host=host, username="", password="")
-api_client = ApiClient(configuration)
+    def testBillerSearchResults(self):
+        """Test BillerSearchResults"""
+        # FIXME: construct object with mandatory attributes with example values
+        # model = BillerSearchResults()  # noqa: E501
+        pass
 
-billers = billers_api.BillersApi(api_client)
-transactions = transactions_api.TransactionsApi(api_client)
-    
-# Custom additions for easier configuration and usage
-from blip.api import billers_api, transactions_api
 
-host = "http://localhost"
-
-configuration = Configuration(host=host, username="", password="")
-api_client = ApiClient(configuration)
-
-billers = billers_api.BillersApi(api_client)
-transactions = transactions_api.TransactionsApi(api_client)
-    
-# Custom additions for easier configuration and usage
-from blip.api import billers_api, transactions_api
-
-host = "http://localhost"
-
-configuration = Configuration(host=host, username="", password="")
-api_client = ApiClient(configuration)
-
-billers = billers_api.BillersApi(api_client)
-transactions = transactions_api.TransactionsApi(api_client)
-    
+if __name__ == '__main__':
+    unittest.main()

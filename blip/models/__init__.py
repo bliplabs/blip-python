@@ -10,12 +10,8 @@
 # sys.setrecursionlimit(n)
 
 from blip.model.biller import Biller
-from blip.model.biller_create import BillerCreate
-from blip.model.biller_create_multi_response import BillerCreateMultiResponse
-from blip.model.biller_enhance_create import BillerEnhanceCreate
-from blip.model.biller_enhance_result import BillerEnhanceResult
-from blip.model.biller_in_result import BillerInResult
-from blip.model.biller_update import BillerUpdate
+from blip.model.biller_search_params import BillerSearchParams
+from blip.model.biller_search_results import BillerSearchResults
 from blip.model.http_validation_error import HTTPValidationError
 from blip.model.transaction import Transaction
 from blip.model.transaction_create import TransactionCreate
