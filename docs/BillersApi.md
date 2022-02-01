@@ -4,181 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_billers**](BillersApi.md#add_billers) | **POST** /v1/billers | Add Billers
-[**enhance_billers**](BillersApi.md#enhance_billers) | **POST** /v1/billers/enhance | Enhance Billers
-[**get_biller**](BillersApi.md#get_biller) | **GET** /v1/billers/{id} | Get Biller
-[**get_billers_status**](BillersApi.md#get_billers_status) | **GET** /v1/billers/status | Get Billers Status
-[**update_biller**](BillersApi.md#update_biller) | **PUT** /v1/billers/{id} | Update Biller
+[**get_biller**](BillersApi.md#get_biller) | **GET** /v1/billers/{origin_id} | Get Biller
+[**search_billers**](BillersApi.md#search_billers) | **POST** /v1/billers/search | Search Billers
 
-
-# **add_billers**
-> BillerCreateMultiResponse add_billers(biller_create)
-
-Add Billers
-
-Add billers.
-
-### Example
-
-* Basic Authentication (HTTPBasic):
-
-```python
-import time
-import blip
-from blip.api import billers_api
-from blip.model.http_validation_error import HTTPValidationError
-from blip.model.biller_create_multi_response import BillerCreateMultiResponse
-from blip.model.biller_create import BillerCreate
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-
-# The client must also configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-configuration = blip.Configuration(
-    host = 'http://localhost',
-    username = 'YOUR_API_KEY',
-)
-
-# Enter a context with an instance of the API client
-with blip.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = billers_api.BillersApi(api_client)
-    biller_create = [
-        BillerCreate(
-            name="name_example",
-            domain="domain_example",
-            login_url="login_url_example",
-            url="url_example",
-            categories=[
-                "categories_example",
-            ],
-            origin_id="origin_id_example",
-            origin_name="origin_name_example",
-            display_name="display_name_example",
-            logo_url="logo_url_example",
-        ),
-    ] # [BillerCreate] | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Add Billers
-        api_response = api_instance.add_billers(biller_create)
-        pprint(api_response)
-    except blip.ApiException as e:
-        print("Exception when calling BillersApi->add_billers: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **biller_create** | [**[BillerCreate]**](BillerCreate.md)|  |
-
-### Return type
-
-[**BillerCreateMultiResponse**](BillerCreateMultiResponse.md)
-
-### Authorization
-
-[HTTPBasic](../README.md#HTTPBasic)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **enhance_billers**
-> [BillerEnhanceResult], none_type enhance_billers(biller_enhance_create)
-
-Enhance Billers
-
-Enhance billers.
-
-### Example
-
-* Basic Authentication (HTTPBasic):
-
-```python
-import time
-import blip
-from blip.api import billers_api
-from blip.model.http_validation_error import HTTPValidationError
-from blip.model.biller_enhance_result import BillerEnhanceResult
-from blip.model.biller_enhance_create import BillerEnhanceCreate
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-
-# The client must also configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-configuration = blip.Configuration(
-    host = 'http://localhost',
-    username = 'YOUR_API_KEY',
-)
-
-# Enter a context with an instance of the API client
-with blip.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = billers_api.BillersApi(api_client)
-    biller_enhance_create = [
-        BillerEnhanceCreate(
-            name="name_example",
-        ),
-    ] # [BillerEnhanceCreate] | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Enhance Billers
-        api_response = api_instance.enhance_billers(biller_enhance_create)
-        pprint(api_response)
-    except blip.ApiException as e:
-        print("Exception when calling BillersApi->enhance_billers: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **biller_enhance_create** | [**[BillerEnhanceCreate]**](BillerEnhanceCreate.md)|  |
-
-### Return type
-
-[**[BillerEnhanceResult], none_type**](BillerEnhanceResult.md)
-
-### Authorization
-
-[HTTPBasic](../README.md#HTTPBasic)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_biller**
-> Biller get_biller(id)
+> Biller get_biller(origin_id)
 
 Get Biller
 
@@ -209,12 +40,12 @@ configuration = blip.Configuration(
 with blip.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = billers_api.BillersApi(api_client)
-    id = 0.0 # int | 
+    origin_id = "origin_id_example" # str | 
 
     # example passing only required values which don't have defaults set
     try:
         # Get Biller
-        api_response = api_instance.get_biller(id)
+        api_response = api_instance.get_biller(origin_id)
         pprint(api_response)
     except blip.ApiException as e:
         print("Exception when calling BillersApi->get_biller: %s\n" % e)
@@ -225,7 +56,7 @@ with blip.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+ **origin_id** | **str**|  |
 
 ### Return type
 
@@ -250,126 +81,61 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_billers_status**
-> BillerCreateMultiResponse get_billers_status()
+# **search_billers**
+> BillerSearchResults search_billers(biller_search_params)
 
-Get Billers Status
+Search Billers
 
-Get the status of the billers index.
-
-### Example
-
-* Basic Authentication (HTTPBasic):
-
-```python
-import time
-import blip
-from blip.api import billers_api
-from blip.model.biller_create_multi_response import BillerCreateMultiResponse
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-
-# The client must also configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-configuration = blip.Configuration(
-    host = 'http://localhost',
-    username = 'YOUR_API_KEY',
-)
-
-# Enter a context with an instance of the API client
-with blip.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = billers_api.BillersApi(api_client)
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get Billers Status
-        api_response = api_instance.get_billers_status()
-        pprint(api_response)
-    except blip.ApiException as e:
-        print("Exception when calling BillersApi->get_billers_status: %s\n" % e)
-```
-
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**BillerCreateMultiResponse**](BillerCreateMultiResponse.md)
-
-### Authorization
-
-[HTTPBasic](../README.md#HTTPBasic)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **update_biller**
-> Biller update_biller(id, biller_update)
-
-Update Biller
-
-Update a biller.
+Get a biller.
 
 ### Example
 
-* Basic Authentication (HTTPBasic):
 
 ```python
 import time
 import blip
 from blip.api import billers_api
 from blip.model.http_validation_error import HTTPValidationError
-from blip.model.biller import Biller
-from blip.model.biller_update import BillerUpdate
+from blip.model.biller_search_results import BillerSearchResults
+from blip.model.biller_search_params import BillerSearchParams
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 
-# The client must also configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-configuration = blip.Configuration(
-    host = 'http://localhost',
-    username = 'YOUR_API_KEY',
-)
 
 # Enter a context with an instance of the API client
-with blip.ApiClient(configuration) as api_client:
+with blip.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = billers_api.BillersApi(api_client)
-    id = 0.0 # int | 
-    biller_update = BillerUpdate(
-        name="name_example",
-        domain="domain_example",
-        login_url="login_url_example",
-        url="url_example",
-        categories=[
-            "categories_example",
+    biller_search_params = BillerSearchParams(
+        q="",
+        offset=0,
+        limit=20,
+        filter=None,
+        facets_distribution=[
+            "facets_distribution_example",
         ],
-        display_name="display_name_example",
-        logo_url="logo_url_example",
-    ) # BillerUpdate | 
+        attributes_to_retrieve=["*"],
+        attributes_to_crop=[
+            "attributes_to_crop_example",
+        ],
+        crop_length=200,
+        attributes_to_highlight=[
+            "attributes_to_highlight_example",
+        ],
+        matches=False,
+        sort=[
+            "sort_example",
+        ],
+    ) # BillerSearchParams | 
 
     # example passing only required values which don't have defaults set
     try:
-        # Update Biller
-        api_response = api_instance.update_biller(id, biller_update)
+        # Search Billers
+        api_response = api_instance.search_billers(biller_search_params)
         pprint(api_response)
     except blip.ApiException as e:
-        print("Exception when calling BillersApi->update_biller: %s\n" % e)
+        print("Exception when calling BillersApi->search_billers: %s\n" % e)
 ```
 
 
@@ -377,16 +143,15 @@ with blip.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
- **biller_update** | [**BillerUpdate**](BillerUpdate.md)|  |
+ **biller_search_params** | [**BillerSearchParams**](BillerSearchParams.md)|  |
 
 ### Return type
 
-[**Biller**](Biller.md)
+[**BillerSearchResults**](BillerSearchResults.md)
 
 ### Authorization
 
-[HTTPBasic](../README.md#HTTPBasic)
+No authorization required
 
 ### HTTP request headers
 
