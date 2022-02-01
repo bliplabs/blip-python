@@ -37,3 +37,25 @@ api_client = ApiClient(configuration)
 billers = billers_api.BillersApi(api_client)
 transactions = transactions_api.TransactionsApi(api_client)
     
+# Custom additions for easier configuration and usage
+from blip.api import billers_api, transactions_api
+
+host = "http://localhost"
+
+configuration = Configuration(host=host, username="", password="")
+api_client = ApiClient(configuration)
+
+billers = billers_api.BillersApi(api_client)
+transactions = transactions_api.TransactionsApi(api_client)
+    
+# Custom additions for easier configuration and usage
+from blip.api import billers_api, transactions_api
+
+host = "http://localhost"
+
+configuration = Configuration(host=host, username="", password="")
+api_client = ApiClient(configuration)
+
+billers = billers_api.BillersApi(api_client)
+transactions = transactions_api.TransactionsApi(api_client)
+    
